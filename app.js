@@ -25,6 +25,7 @@ mongoose.connect("mongodb+srv://Rufus:*Rufus123*@webdev.aitzi.mongodb.net/<dbnam
 }).catch(err=>{
 	console.log("Error:",err.message);
 });
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine","ejs");
