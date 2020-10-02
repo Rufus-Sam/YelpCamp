@@ -17,7 +17,14 @@ var commentRoutes     = require("./routes/comments"),
 
 //seedDB();
 //mongoose.connect("mongodb://localhost/yelpcamp");
-mongoose.connect("mongodb+srv://Rufus:*Rufus123*@webdev.aitzi.mongodb.net/<dbname>?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://Rufus:*Rufus123*@webdev.aitzi.mongodb.net/Webdev?retryWrites=true&w=majority",{
+	useNewUrlParser : true,
+	useCreateIndex  : true
+}).then(()=>{
+	console.log("Connected to database");
+}).catch(err=>{
+	console.log("Error:",err.message);
+});
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/public"));
